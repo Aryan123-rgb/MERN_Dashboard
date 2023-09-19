@@ -3,7 +3,7 @@ import User from "../models/User.js";
 export const getUser = async (req, res) => {
   try {
     const { id } = req.params;
-    const user = User.findById(id);
+    const user = await User.findById(id);
     if (!user) {
       res.status(400).json({ Error: "No user found" });
     }
